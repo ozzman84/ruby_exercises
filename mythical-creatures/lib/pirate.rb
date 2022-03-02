@@ -11,9 +11,7 @@ class Pirate
   end
 
   def cursed?
-    if @heinous_acts > 2
-      @cursed = true
-    end
+    @cursed = true if @heinous_acts > 2
     @cursed
   end
 
@@ -27,5 +25,5 @@ class Pirate
 
   def rob_ship
     @booty += 100
-  end 
+  end
 end
