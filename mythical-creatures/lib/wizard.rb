@@ -1,10 +1,11 @@
 
 class Wizard
-  attr_reader :name
+  attr_reader :name, :qualities, :strength
 
-  def initialize(name, qualities={:bearded => true})
+  def initialize(name, qualities={bearded: true})
     @name     = name
     @bearded  = qualities.fetch(:bearded)
+    @strength = 3
   end
 
   def bearded?
@@ -15,4 +16,8 @@ class Wizard
     cast = 'sudo ' + spell
     cast
   end
+
+  def rested?
+    @strength > 0
+  end 
 end
