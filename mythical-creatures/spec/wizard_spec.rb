@@ -32,21 +32,26 @@ RSpec.describe Wizard do
     expect(wizard.incantation('rm -rf /home/mirandax')).to eq('sudo rm -rf /home/mirandax')
   end
 
+  before :each do
+    @wizard = Wizard.new('Ben')
+  end
+
   it 'starts rested' do
-    # create wizard
-    # .rested? returns true
+    expect(@wizard.rested?).to be true
   end
 
   it 'can cast spells' do
-    # create wizard
-    # .cast returns "MAGIC MISSILE!"
+    expect(@wizard.cast).to eq("MAGIC MISSILE!")
   end
 
   it 'gets tired after casting three spells' do
-    # create wizard
-    # casts spell twice
-    # check if wizard is rested
-    # casts spell
-    # check wizard is not rested
+    @wizard.cast
+    @wizard.cast
+
+    expect(@wizard.rested?).to eq true
+
+    @wizard.cast
+
+    expect(@wizard.rested?).to eq false
   end
 end
