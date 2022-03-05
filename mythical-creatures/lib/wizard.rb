@@ -19,5 +19,10 @@ class Wizard
 
   def rested?
     @strength > 0
-  end 
+  end
+
+  def cast
+    @strength -= 1
+    'MAGIC MISSILE!' 
+  end
 end
